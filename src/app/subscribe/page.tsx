@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabaseClient'
 
-export default function SubscribePage() {
+function SubscribeForm() {
   const searchParams = useSearchParams()
   const plan = searchParams.get('plan') || 'No Plan Selected'
 
@@ -59,5 +59,13 @@ export default function SubscribePage() {
         <button type="submit" className="w-full bg-black text-white p-2 rounded">Confirm Subscription</button>
       </form>
     </div>
+  )
+}
+
+export default function SubscribePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <SubscribeForm />
+    </Suspense>
   )
 }
