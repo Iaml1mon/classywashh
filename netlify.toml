@@ -1,3 +1,6 @@
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [build]
   command = "npm run build"
   publish = ".next"
@@ -14,6 +17,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
