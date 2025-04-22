@@ -25,20 +25,18 @@ export async function POST(req: Request) {
     // Create a new subscription record
     const { data: subscription, error: dbError } = await supabase
       .from("subscriptions")
-      .insert([
-        {
-          user_id: userId,
-          plan: planId,
-          status: "pending",
-        },
-      ])
+      .insert({
+        user_id: userId,
+        plan_id: planId,
+        status: "pending",
+      })
       .select()
       .single()
 
     if (dbError) {
       console.error("Database error:", dbError)
       return NextResponse.json(
-        { error: "Error creating subscription" },
+        { error: `Database error: ${dbError?.message || "Unknown error"}` },
         { status: 500 }
       )
     }
@@ -69,10 +67,10 @@ export async function POST(req: Request) {
     })
 
     return NextResponse.json({ url: session.url })
-  } catch (error) {
+  } catch (error: any) {
     console.error("Stripe error:", error)
     return NextResponse.json(
-      { error: "Error creating checkout session" },
+      { error: `Error creating checkout session: ${error?.message || "Unknown error"}` },
       { status: 500 }
     )
   }
