@@ -1,3 +1,5 @@
+"use client"
+
 import { TestToast } from "@/components/test-toast"
 
 export default function TestToastPage() {
@@ -7,4 +9,4 @@ export default function TestToastPage() {
       <TestToast />
     </div>
   )
-} 
+}
