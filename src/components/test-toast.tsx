@@ -20,7 +20,7 @@ export function TestToast() {
       </Button>
 
       <Button
-        variant="destructive"
+        variant="outline"
         onClick={() => {
           toast({
             variant: "destructive",
