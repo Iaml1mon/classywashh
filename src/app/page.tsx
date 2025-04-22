@@ -54,7 +54,7 @@ export default function Page() {
         <section id="about" className="mt-24 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 text-gray-800">Why Choose ClassyWash?</h2>
           <p className="text-gray-600 text-lg">
-            We're Sydney's premium cleaning club. Our plans make sure your home stays fresh, organized, and welcoming all month long.
+          We&apos;re Sydney&apos;s premium cleaning club. Our plans make sure your home stays fresh, organized, and welcoming all month long.
             Join once, and never worry about mess again.
           </p>
         </section>
