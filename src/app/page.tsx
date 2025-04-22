@@ -4,22 +4,22 @@ import Link from 'next/link'
 
 const plans = [
   {
+    id: 'basic-fresh',
     name: 'Basic Fresh',
     price: '$79/mo',
     description: '1 clean/month + 1 pressure wash (small area)',
-    link: '/subscribe?plan=Basic Fresh',
   },
   {
+    id: 'neat-elite',
     name: 'Neat Elite',
     price: '$129/mo',
     description: 'Bi-weekly cleaning + full driveway pressure wash',
-    link: '/subscribe?plan=Neat Elite',
   },
   {
+    id: 'royal-shine',
     name: 'Royal Shine',
     price: '$199/mo',
     description: 'Weekly cleaning + 1 free add-on per month',
-    link: '/subscribe?plan=Royal Shine',
   },
 ]
 
@@ -32,9 +32,9 @@ export default function Page() {
         </h1>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {plans.map((plan, idx) => (
+          {plans.map((plan) => (
             <div
-              key={idx}
+              key={plan.id}
               className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between border border-gray-200 hover:border-blue-500"
             >
               <div>
@@ -42,7 +42,7 @@ export default function Page() {
                 <p className="text-4xl font-extrabold text-blue-600 mb-4">{plan.price}</p>
                 <p className="text-gray-600 text-sm mb-6 min-h-[60px]">{plan.description}</p>
               </div>
-              <Link href={plan.link} className="mt-4">
+              <Link href={`/subscribe?plan=${encodeURIComponent(plan.id)}`} className="mt-4">
                 <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl font-semibold transition">
                   Choose Plan
                 </button>
