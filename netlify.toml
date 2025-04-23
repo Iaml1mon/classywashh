@@ -1,16 +1,20 @@
+# Build settings
 [build]
   command = "npm run build"
   publish = ".next"
 
+# Build environment variables
 [build.environment]
   NODE_VERSION = "18"
   NEXT_USE_NETLIFY_EDGE = "true"
   NEXT_DISABLE_SOURCEMAPS = "true"
   NEXT_TELEMETRY_DISABLED = "1"
 
+# Plugins
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Headers for security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -18,6 +22,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# Custom 404 handling
 [[redirects]]
   from = "/*"
   to = "/404.html"
