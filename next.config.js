@@ -6,6 +6,9 @@ const nextConfig = {
   },
   distDir: '.next',
   trailingSlash: true,
+  experimental: {
+    serverComponentsExternalPackages: ['react', 'react-dom'],
+  },
 };
 
 module.exports = nextConfig;

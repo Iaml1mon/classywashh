@@ -1,10 +1,10 @@
 import { GeistSans } from "geist/font/sans"
 import { Analytics } from "@vercel/analytics/react"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { SiteHeader } from "@/components/site-header"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/constants"
+import ClientThemeProvider from "@/components/client-theme-provider"
 
 import "./globals.css"
 
@@ -67,18 +67,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           GeistSans.className
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ClientThemeProvider>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
           </div>
           <Toaster />
-        </ThemeProvider>
+        </ClientThemeProvider>
         <Analytics />
       </body>
     </html>

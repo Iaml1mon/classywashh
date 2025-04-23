@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, Suspense } from 'react'
+import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabaseClient'
 
@@ -122,8 +122,6 @@ function SubscribeForm() {
 
 export default function SubscribePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-      <SubscribeForm />
-    </Suspense>
+    <SubscribeForm />
   )
 }
