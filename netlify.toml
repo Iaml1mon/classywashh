@@ -25,8 +25,14 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Custom 404 handling
+# Next.js client-side routing
 [[redirects]]
   from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Custom 404 handling (only for truly missing pages)
+[[redirects]]
+  from = "/404"
   to = "/404.html"
   status = 404
